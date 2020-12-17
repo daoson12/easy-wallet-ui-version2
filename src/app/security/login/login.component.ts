@@ -33,10 +33,13 @@ export class LoginComponent implements OnInit {
     // stop here if form is invalid
     if (this.loginForm.invalid) {
         return;
+    
   }
   
   this.service.login(this.loginForm.value).subscribe(
+    
     (res: any) => {
+   
       if (res.access_token) {
         this.session.setToken(res.access_token)
         this.authenticateAndGetUserRoles(this.loginForm.value);
@@ -45,7 +48,7 @@ export class LoginComponent implements OnInit {
           this.loading=false;
           this.router.navigate(["/"])
           this.toastr.success('Login Successful!');
-         }, 3000);
+         }, 2000);
     
       }
     },
@@ -55,13 +58,16 @@ export class LoginComponent implements OnInit {
       //  console.log("invalid credential");
       this.loading=false;
        this.toastr.error('invalid credential!');
+     
       }
+      
     }
   );
 
   }
 
   authenticateAndGetUserRoles(value:any){
+
     this.service.authenticateAndGetUserRoles(value).subscribe(
         (res: any) => {
    console.log(res);

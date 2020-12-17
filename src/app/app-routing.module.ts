@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './layout/home/home.component';
+import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 import { AuthGuard } from './security/helper/auth.guard';
 import { NotAuthGuard } from './security/helper/notAuth.guard';
 import { LoginComponent } from './security/login/login.component';
@@ -12,8 +13,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent,canActivate:[NotAuthGuard] },
   
   {path:'sign-up', component:SignUpComponent,canActivate:[NotAuthGuard]},
+
   {path:'', component:HomeComponent, 
-children:[
+
+  children:[
   {
     path: '', 
     loadChildren: () => import('./layout/dashboard/dashboard.module').then(m => m.DashboardModule),canActivate:[AuthGuard]
@@ -46,11 +49,12 @@ children:[
     path: 'edit-user', 
     loadChildren: () => import('./components/Users/edit-user/edit-user.module').then(m => m.EditUserModule),canActivate:[AuthGuard]
   },
-]}
+]},
+{path:'**', component:PageNotFoundComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{useHash:true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

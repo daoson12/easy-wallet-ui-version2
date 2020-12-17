@@ -5,15 +5,11 @@
     </ol>
 </nav>
 
-
 <div class="card card-default">
     <div class="card-header">
-        <h3 class="card-title"><strong> Buy Airtime Form</strong></h3>
-        <span class="badge badge-success">Account No: 29380928308</span>
-        <span class="badge badge-warning">Account Bal: #8285080</span>
-
         <div class="card-tools">
-
+            <span class="badge badge-success">Account No: {{userAccountNumber}}</span>
+            <span class="badge badge-warning">Account Bal:&#8358;  {{userBalance}}</span>
             <button type="button" class="btn btn-tool" data-card-widget="collapse">
           <i class="fas fa-minus"></i>
         </button>
@@ -22,20 +18,81 @@
         </button>
         </div>
     </div>
-    <div class="card-body">
-        <div class="tr-job-posted section-padding">
-            <div class="container">
-                <div class="job-tab text-center">
-                    <ul class="nav nav-tabs justify-content-center" role="tablist">
-                        <li role="presentation" class="active">
-                            <a class="active show" href="#mtn" aria-controls="mtn" role="tab" data-toggle="tab" aria-selected="true">MTN</a>
-                        </li>
-                        <li role="presentation"><a href="#glo" aria-controls="glo" role="tab" data-toggle="tab" class="" aria-selected="false">GLO</a></li>
-                        <li role="presentation"><a href="#airtel" aria-controls="airtel" role="tab" data-toggle="tab" class="" aria-selected="false">AIRTEL</a></li>
-                        <li role="presentation"><a href="#9mobile" aria-controls="9mobile" role="tab" data-toggle="tab" class="" aria-selected="false">9MOBILE</a></li>
-                    </ul>
-                    <div class="tab-content text-left">
-                        <div role="tabpanel" class="tab-pane fade active show" id="mtn">
+    <div class="tr-job-posted section-padding mt-3">
+        <div class="container">
+            <div class="job-tab text-center">
+                <ul class="nav nav-tabs justify-content-center" role="tablist">
+                    <li role="presentation" class="active">
+                        <a class="active show" href="#mtn" aria-controls="mtn" role="tab" data-toggle="tab" aria-selected="true">MTN</a>
+                    </li>
+                    <li role="presentation"><a href="#glo" aria-controls="glo" role="tab" data-toggle="tab" class="" aria-selected="false">GLO</a></li>
+                    <li role="presentation"><a href="#airtel" aria-controls="airtel" role="tab" data-toggle="tab" class="" aria-selected="false">AIRTEL</a></li>
+                    <li role="presentation"><a href="#mobile" aria-controls="mobile" role="tab" data-toggle="tab" class="" aria-selected="false">9MOBILE</a></li>
+                </ul>
+                <div class="tab-content text-left">
+                    <div role="tabpanel" class="tab-pane fade active show" id="mtn">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-5">
+                                    <div class="card cardbox">
+
+                                        <div class="card-body">
+
+                                            <!-- socail media group -->
+
+                                            <div *ngIf="showRechargeCard" class="alert alert-warning " style="width: auto;">
+                                                Pin: <strong>{{rechargeCard}}</strong></div>
+                                            <div class="form-group">
+
+                                                <form id="login-nav" method="post" role="form" class="form" accept-charset="UTF-8">
+
+                                                    <div class="form-group">
+                                                        <label class="sr-only">Phone Number</label>
+                                                        <input type="text" [(ngModel)]="phoneNo" id="reg_username" name="phoneNo" class="form-control" placeholder="Phone Number" required>
+                                                    </div>
+                                                    <!-- email group -->
+                                                    <div class="form-group">
+                                                        <label class="sr-only">Amount</label>
+                                                        <input type="type" [(ngModel)]="amount" id="reg_useremail" name="amount" class="form-control" placeholder="Amount">
+                                                    </div>
+                                                    <!-- password group -->
+                                                    <div class="form-group">
+
+                                                        <!-- password label -->
+                                                        <label class="sr-only">Pin</label>
+                                                        <!-- password input -->
+                                                        <div class="input-group">
+                                                            <input type="text" [(ngModel)]="transactionPin" id="reg_userpassword" name="transactionPin" class="form-control" data-placement="bottom" data-toggle="popover" data-container="body" data-html="true" placeholder="Pin" required>
+
+                                                            <div class="input-group-append">
+                                                                <button class="btn btn-outline-secondary" type="button" id="button-append1" onclick="togglePassword()">
+                                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Submit -->
+                                                    <div class="form-group">
+                                                        <button class="btn btn-block btn-sm" style=" background-color: #31b1a4; color: white;" (click)="buyMtnAirtime()">Buy Airtime</button>
+
+                                                    </div>
+
+
+                                                </form>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div role="tabpanel" class="tab-pane fade in" id="glo">
+                        <div role="tabpanel" class="tab-pane fade active show" id="glo">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-4"></div>
@@ -43,70 +100,8 @@
                                         <div class="card cardbox">
 
                                             <div class="card-body">
-
-                                                <!-- socail media group -->
-
-                                                <!-- <div *ngIf="showRechargeCard" class="alert alert-warning " style="width: auto;">
-                                            Pin: <strong>{{rechargeCard}}</strong></div> -->
+                                                <div *ngIf="showRechargeCard" class="alert alert-info " style="width: auto;">Pin: <strong>{{rechargeCard}}</strong></div>
                                                 <div class="form-group">
-
-                                                    <form id="login-nav" method="post" role="form" class="form" accept-charset="UTF-8">
-
-                                                        <div class="form-group">
-                                                            <label class="sr-only">Phone Number</label>
-                                                            <input type="text" id="reg_username" name="phoneNo" class="form-control" placeholder="Phone Number" required>
-                                                        </div>
-                                                        <!-- email group -->
-                                                        <div class="form-group">
-                                                            <label class="sr-only">Amount</label>
-                                                            <input type="type" id="reg_useremail" name="amount" class="form-control" placeholder="Amount">
-                                                        </div>
-                                                        <!-- password group -->
-                                                        <div class="form-group">
-
-                                                            <!-- password label -->
-                                                            <label class="sr-only">Pin</label>
-                                                            <!-- password input -->
-                                                            <div class="input-group">
-                                                                <input type="text" id="reg_userpassword" name="transactionPin" class="form-control" data-placement="bottom" data-toggle="popover" data-container="body" data-html="true" placeholder="Pin" required>
-
-                                                                <div class="input-group-append">
-                                                                    <button class="btn btn-outline-secondary" type="button" id="button-append1" onclick="togglePassword()">
-                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                            </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- Submit -->
-                                                        <div class="form-group">
-                                                            <button class="btn btn-block btn-sm" style=" background-color: #31b1a4; color: white;" (click)="buyMtnAirtime()">Buy Airtime</button>
-
-                                                        </div>
-
-
-                                                    </form>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.tab-pane -->
-                        <div role="tabpanel" class="tab-pane fade in" id="glo">
-                            <div role="tabpanel" class="tab-pane fade active show" id="glo">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-5">
-                                            <div class="card cardbox">
-
-                                                <div class="card-body">
-                                                    <!-- <div *ngIf="showRechargeCard" class="alert alert-info " style="width: auto;">Pin: <strong>{{rechargeCard}}</strong></div>
-                                            <div class="form-group"> -->
                                                     <!-- socail media group -->
 
 
@@ -115,12 +110,12 @@
 
                                                             <div class="form-group">
                                                                 <label class="sr-only">Phone Number</label>
-                                                                <input type="text" name="phoneNo" class="form-control" placeholder="Phone Number" required>
+                                                                <input type="text" [(ngModel)]="phoneNo" name="phoneNo" class="form-control" placeholder="Phone Number" required>
                                                             </div>
                                                             <!-- email group -->
                                                             <div class="form-group">
                                                                 <label class="sr-only">Amount</label>
-                                                                <input type="type" name="amount" class="form-control" placeholder="Amount">
+                                                                <input type="type" [(ngModel)]="amount" name="amount" class="form-control" placeholder="Amount">
                                                             </div>
                                                             <!-- password group -->
                                                             <div class="form-group">
@@ -129,12 +124,12 @@
                                                                 <label class="sr-only">Pin</label>
                                                                 <!-- password input -->
                                                                 <div class="input-group">
-                                                                    <input type="text" name="transactionPin" class="form-control" data-placement="bottom" data-toggle="popover" data-container="body" data-html="true" placeholder="Pin" required>
+                                                                    <input type="text" [(ngModel)]="transactionPin" name="transactionPin" class="form-control" data-placement="bottom" data-toggle="popover" data-container="body" data-html="true" placeholder="Pin" required>
 
                                                                     <div class="input-group-append">
                                                                         <button class="btn btn-outline-secondary" type="button" id="button-append1" onclick="togglePassword()">
-                                                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                    </button>
+                                                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -156,18 +151,19 @@
                             </div>
                             <!-- /.row -->
                         </div>
+                    </div>
 
-                        <div role="tabpanel" class="tab-pane fade in" id="airtel">
-                            <div role="tabpanel" class="tab-pane fade active show" id="airtel">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-5">
-                                            <div class="card cardbox">
+                    <div role="tabpanel" class="tab-pane fade in" id="airtel">
+                        <div role="tabpanel" class="tab-pane fade active show" id="airtel">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-5">
+                                        <div class="card cardbox">
 
-                                                <div class="card-body">
-                                                    <!-- <div *ngIf="showRechargeCard" class="alert alert-info " style="width: auto;">Pin: <strong>{{rechargeCard}}</strong></div>
-                                            <div class="form-group"> -->
+                                            <div class="card-body">
+                                                <div *ngIf="showRechargeCard" class="alert alert-info " style="width: auto;">Pin: <strong>{{rechargeCard}}</strong></div>
+                                                <div class="form-group">
                                                     <!-- socail media group -->
 
 
@@ -177,12 +173,12 @@
 
                                                             <div class="form-group">
                                                                 <label class="sr-only">Phone Number</label>
-                                                                <input type="text" name="phoneNo" class="form-control" placeholder="Phone Number" required>
+                                                                <input type="text" [(ngModel)]="phoneNo" name="phoneNo" class="form-control" placeholder="Phone Number" required>
                                                             </div>
                                                             <!-- email group -->
                                                             <div class="form-group">
                                                                 <label class="sr-only">Amount</label>
-                                                                <input type="type" name="amount" class="form-control" placeholder="Amount">
+                                                                <input type="type" [(ngModel)]="amount" name="amount" class="form-control" placeholder="Amount">
                                                             </div>
                                                             <!-- password group -->
                                                             <div class="form-group">
@@ -191,7 +187,7 @@
                                                                 <label class="sr-only">Pin</label>
                                                                 <!-- password input -->
                                                                 <div class="input-group">
-                                                                    <input type="password" name="transactionPin" class="form-control" data-placement="bottom" data-toggle="popover" data-container="body" data-html="true" value="" placeholder="Pin" required>
+                                                                    <input type="password" [(ngModel)]="transactionPin" name="transactionPin" class="form-control" data-placement="bottom" data-toggle="popover" data-container="body" data-html="true" value="" placeholder="Pin" required>
                                                                 </div>
                                                                 <!-- password progresbar -->
                                                                 <div class="progress mt-1" id="reg-password-strength">
@@ -202,7 +198,8 @@
                                                                 <!-- Password Rules -->
                                                                 <div id="reg_passwordrules" class="hide password-rule mt-2">
                                                                     <small>
-                                                                    </small></div>
+                                                                    </small>
+                                                                </div>
 
                                                             </div>
                                                             <!-- Submit -->
@@ -228,32 +225,35 @@
                             <!-- /.row -->
                         </div>
 
-                        <div role="tabpanel" class="tab-pane fade in" id="9mobile">
-                            <div role="tabpanel" class="tab-pane fade active show" id="9mobile">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-5">
-                                            <div class="card cardbox">
+                        <!-- /.job-tab -->
+                    </div>
 
-                                                <div class="card-body">
-                                                    <!-- <div *ngIf="showRechargeCard" class="alert alert-info " style="width: auto;">Pin: <strong>{{rechargeCard}}</strong></div>
-                                            <div class="form-group"> -->
+                    <div role="tabpanel" class="tab-pane fade in" id="mobile">
+                        <div role="tabpanel" class="tab-pane fade active show" id="mobile">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-5">
+                                        <div class="card cardbox">
+
+                                            <div class="card-body">
+                                                <div *ngIf="showRechargeCard" class="alert alert-info " style="width: auto;">Pin: <strong>{{rechargeCard}}</strong></div>
+                                                <div class="form-group">
                                                     <!-- socail media group -->
 
 
                                                     <div class="form-group">
 
-                                                        <form id="login-nav" method="post" role="form" class="form" accept-charset="UTF-8">
+                                                        <form id="login-nav" role="form" class="form" accept-charset="UTF-8">
 
                                                             <div class="form-group">
                                                                 <label class="sr-only">Phone Number</label>
-                                                                <input type="text" name="phoneNo" class="form-control" placeholder="Phone Number" required>
+                                                                <input type="text" [(ngModel)]="phoneNo" name="phoneNo" class="form-control" placeholder="Phone Number" required>
                                                             </div>
                                                             <!-- email group -->
                                                             <div class="form-group">
                                                                 <label class="sr-only">Amount</label>
-                                                                <input type="type" name="amount" class="form-control" value="" placeholder="Amount">
+                                                                <input type="type" [(ngModel)]="amount" name="amount" class="form-control" value="" placeholder="Amount">
                                                             </div>
                                                             <!-- password group -->
                                                             <div class="form-group">
@@ -262,7 +262,7 @@
                                                                 <label class="sr-only">Pin</label>
                                                                 <!-- password input -->
                                                                 <div class="input-group">
-                                                                    <input type="password" name="transactionPin" class="form-control" data-placement="bottom" data-toggle="popover" data-container="body" data-html="true" value="" placeholder="Pin" required>
+                                                                    <input type="password" [(ngModel)]="transactionPin" name="transactionPin" class="form-control" data-placement="bottom" data-toggle="popover" data-container="body" data-html="true" value="" placeholder="Pin" required>
                                                                 </div>
                                                                 <!-- password progresbar -->
                                                                 <div class="progress mt-1" id="reg-password-strength">
@@ -271,13 +271,14 @@
                                                                 </div>
 
                                                                 <!-- Password Rules -->
-                                                                <div id="reg_passwordrules" class="hide password-rule mt-2"><small>
-                                                                        </small></div>
+                                                                <div id="reg_passwordrules" class="hide password-rule mt-2">
+                                                                    <small>
+                                                                    </small></div>
 
                                                             </div>
                                                             <!-- Submit -->
                                                             <div class="form-group">
-                                                                <button name="submit" value="1" class="btn btn-block btn-sm" style=" background-color: #31b1a4; color: white;" (click)="buy9mobileAirtime()">Buy Airtime</button>
+                                                                <button name="submit" class="btn btn-block btn-sm" style=" background-color: #31b1a4; color: white;" (click)="buy9mobileAirtime()">Buy Airtime</button>
                                                                 <div id="sign-up-popover" class="hide">
                                                                     <p>is empty</p>
                                                                 </div>
@@ -297,16 +298,11 @@
                             </div>
                             <!-- /.row -->
                         </div>
+
                     </div>
-
-
-
-                    <!-- /.job-tab -->
+                    <!-- /.container -->
                 </div>
-
-
             </div>
-            <!-- /.container -->
         </div>
     </div>
 </div>

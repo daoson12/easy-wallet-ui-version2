@@ -23,6 +23,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 import { NgxSpinnerModule } from "ngx-spinner";
+import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     HomeComponent,
     LoginComponent,
     SignUpComponent,
+    PageNotFoundComponent,
   ],
   imports: [
 

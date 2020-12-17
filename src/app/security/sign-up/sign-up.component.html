@@ -123,10 +123,11 @@
         <!-- /password .form-group -->
 
         <!--submit button .form-group -->
-        <div class="form-group">
 
-            <button (click)="register()" class="btn btn-lg btn-primary btn-block spinner-border" type="submit" role="status">Create Account  <span class="sr-only">Loading...</span></button>
+        <div class="form-group">
+            <button (click)="register()" style="background-color: #31b1a4;" class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
         </div>
+
         <!-- submit button.form-group -->
         <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="registerForm"></ngx-loading>
         <!-- recovery links -->

@@ -36,42 +36,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>183</td>
-                            <td>11-7-2014</td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                            <td>12,3221</td>
-                            <td><span class="tag tag-success">completed</span></td>
+                        <tr *ngFor="let list of WalletTransaction.slice().reverse() | paginate: { itemsPerPage: 5, currentPage: p };let i=index">
+                            <td> {{i+1}}</td>
+                            <td> {{list.dateCreated | date:'medium'}}</td>
+                            <td>{{list.description}}.</td>
+                            <td>{{list.amount}}</td>
+                            <td><span class="tag tag-success">{{list.status}}</span></td>
 
-                        </tr>
-                        <tr>
-                            <td>183</td>
-                            <td>11-7-2014</td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                            <td>12,3221</td>
-                            <td><span class="tag tag-success">completed</span></td>
-
-                        </tr>
-                        <tr>
-                            <td>183</td>
-                            <td>11-7-2014</td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                            <td>12,3221</td>
-                            <td><span class="tag tag-success">completed</span></td>
-
-                        </tr>
-                        <tr>
-                            <td>183</td>
-                            <td>11-7-2014</td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                            <td>12,3221</td>
-                            <td><span class="tag tag-success">completed</span></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <!-- /.card-body -->
+            <!-- Pagination -->
         </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
         <!-- /.card -->
     </div>
 </div>

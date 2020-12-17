@@ -25,7 +25,7 @@
                                 <img src="assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                             </div>
                             <div class="info">
-                                <span><a href="#" class="d-block">Alexander Pierce</a></span>
+                                <span><a href="#" class="d-block"> {{loggedInUser?.firstName}}  {{loggedInUser?.lastName}}</a></span>
                             </div>
 
                         </div>
@@ -94,6 +94,7 @@
                         <i class="nav-icon far fa-image"></i>
                         <p>
                             Withdrawal
+                            <span class="badge badge-info right"> 12</span>
                         </p>
                     </a>
                 </li>
